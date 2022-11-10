@@ -24,7 +24,8 @@ export default class Profile extends Component {
       }
     
       componentDidMount() {
-      //  this._loadFontsAsync();
+        this.fetchTheme();
+
       }
 
       toggleSwitch(){                           
@@ -36,6 +37,15 @@ export default class Profile extends Component {
         this.setState({isEnabled: !previous_state, light_theme: previous_state})
         
       }
+
+      fetchTheme= ( ) => {
+        var theme
+        firebase.database().ref("/").on("value", data=>{
+          theme=data.val().current_theme
+          this.setState({light_theme: theme === "light"})
+        })
+    
+      };
 
       render() {
           return (

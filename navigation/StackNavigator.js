@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import TabNavigator  from './TabNavigator';
-import StoryScreen from '../screens/storyScreen';
+import StoryScreen from '../screens/trampoScreen';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +13,7 @@ const StackNavigator = () => {
      
         >   
           <Stack.Screen name="Tela inicial" component={TabNavigator} />
-          <Stack.Screen name="Tela de História" component={StoryScreen} />
+          <Stack.Screen name="Tela de Trampo" component={StoryScreen} />
         </Stack.Navigator>
     );
   }

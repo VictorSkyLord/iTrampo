@@ -9,7 +9,7 @@ import {
   Image
 } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import StoryCard from "./StoryCard";
+import trampoCard from "./trampoCard";
 import firebase from "firebase";
 import * as Font from "expo-font";
 import { FlatList } from "react-native-gesture-handler";
@@ -38,7 +38,7 @@ export default class Feed extends Component {
   }
 
   fetchStories = () =>{
-    firebase.database().ref('/posts/').on("value", data=>{
+    firebase.database().ref('/trampo/').on("value", data=>{
       let stories = [];
       if (data.val()) {
         Object.keys(data.val()).forEach(function(key) {
@@ -61,8 +61,8 @@ export default class Feed extends Component {
 
   };
 
-  renderItem = ({ item: story }) => {
-    return <StoryCard story={story} navigation={this.props.navigation} />;
+  renderItem = ({ item: trampo }) => {
+    return <trampoCard trampo={trampo} navigation={this.props.navigation} />;
   };
 
   keyExtractor = (item, index) => index.toString();
